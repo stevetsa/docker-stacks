@@ -119,7 +119,10 @@ RUN conda install --quiet --yes \
 USER root
 
 ###
-RUN conda install -c bioconda blast
+#RUN conda install -c bioconda blast
+COPY ./requirements.txt /opt
+WORKDIR /opt
+RUN conda install --file requirements.txt
 ###
 
 EXPOSE 8888
